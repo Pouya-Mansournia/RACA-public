@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+title: "RACA: Robotic Adaptive Cognitive Architecture"
+authors:
+  - family-names: Mansournia
+    given-names: Pouya
+    email: p.mansournia@gmail.com
+repository-code: "https://github.com/Pouya-Mansournia/RACA"
+license: BSD-3-Clause
+date-released: "2026-08-14"
+preferred-citation:
+  type: article
+  title: "The Cost and Limits of Proactive Reasoning Allocation in Multi-Robot Coordination"
+  authors:
+    - family-names: Mansournia
+      given-names: Pouya
+      email: p.mansournia@gmail.com
+  year: 2026
+  status: preprint
