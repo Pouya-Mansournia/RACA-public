@@ -1,10 +1,11 @@
 # RACA: Robotic Adaptive Cognitive Architecture
 
-RACA is a research platform for studying **when it is worth spending an
-LLM call on a robot coordination decision, and when a cheap deterministic
-rule is just as good**. It provides a ROS-free, dependency-light core:
-routers, backend abstractions, a lightweight multi-robot simulator, and
-statistics tooling.
+RACA studies a boundary-condition question: **under what circumstances
+does spending an LLM call on a robot coordination decision pay for its
+cost, and when does that benefit collapse to noise?** This repository is
+the ROS-free, dependency-light core behind that study: routers, backend
+abstractions, a lightweight multi-robot simulator, and statistics
+tooling — not a claim to a novel architecture on its own.
 
 This repository contains:
 
