@@ -1,0 +1,31 @@
+scale stress test: does the routing mechanism hold up far outside the 2-6 robot range tested elsewhere?
+
+duration=300.0s simulated, N=1 seed per (scenario, router) - exploratory, not statistically powered
+
+### 5x_warehouse_100_robots (scale=5.0x, 100 robots)
+
+| Router | N robots | N stations | Tasks completed | Tasks/robot | LLM rate | Wall clock |
+|---|---:|---:|---:|---:|---:|---:|
+| always_deterministic | 100 | 100 | 428 | 4.280 | 0.0000 | 0.04s |
+| always_llm | 100 | 100 | 417 | 4.170 | 1.0000 | 0.04s |
+| adaptive_router | 100 | 100 | 420 | 4.200 | 0.9555 | 0.04s |
+
+  adaptive_router vs always_llm: task-count diff +3, LLM-rate diff -0.0445
+  adaptive_router vs always_deterministic: task-count diff -8
+  contention ratio (robots per station): 1.00
+
+### 10x_city_200_robots (scale=10.0x, 200 robots)
+
+| Router | N robots | N stations | Tasks completed | Tasks/robot | LLM rate | Wall clock |
+|---|---:|---:|---:|---:|---:|---:|
+| always_deterministic | 200 | 200 | 415 | 2.075 | 0.0000 | 0.08s |
+| always_llm | 200 | 200 | 416 | 2.080 | 1.0000 | 0.07s |
+| adaptive_router | 200 | 200 | 416 | 2.080 | 0.9046 | 0.08s |
+
+  adaptive_router vs always_llm: task-count diff +0, LLM-rate diff -0.0954
+  adaptive_router vs always_deterministic: task-count diff +1
+  contention ratio (robots per station): 1.00
+
+(N=1 per cell - a single seed at each scale, exploratory only. No statistical claim is made here;
+ compare against the N=20, 2-robot campaign in Phase 13 / RACA-PAPER/data/phase13_campaign_N20.txt
+ for the statistically powered result at the scale this program actually validated.)

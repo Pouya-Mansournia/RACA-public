@@ -12,11 +12,16 @@ This repository contains:
 - **`raca/`** — the software: `raca_core` (routing logic, LLM/deterministic
   backends, difficulty/ambiguity modeling, contracts, statistics),
   `raca_worlds` (a lightweight simulator with no ROS/Gazebo dependency),
-  and `raca/tests` (unit tests covering the above).
+  `raca/tools` (the experiment and analysis scripts behind the paper's
+  results), and `raca/tests` (unit tests covering the above).
+- **`reproducibility/`** — the raw data captures and reference figures
+  needed to reproduce the manuscript's quantitative results; see
+  `reproducibility/README.md`.
 
-The accompanying manuscript, raw experiment data, research/analysis
-tooling, and internal review/audit material are kept private and are
-not part of this public release.
+The manuscript itself, the internal pre-submission audit trail, the
+literature review working notes, and the full chronological research
+journal are kept private and are not part of this public release; they
+are not required to reproduce the reported results.
 
 ## Quick start
 

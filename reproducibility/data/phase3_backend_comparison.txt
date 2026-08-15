@@ -1,0 +1,13 @@
+scenario: 2 robots, seed=6, duration=60.0s
+
+  backend='deterministic': total_tasks_completed=8
+    robot1: tasks=4 final_battery=0.9691
+    robot2: tasks=4 final_battery=0.9691
+  backend='mock': total_tasks_completed=8
+    robot1: tasks=4 final_battery=0.9691
+    robot2: tasks=4 final_battery=0.9691
+  backend='local_llm': total_tasks_completed=8
+    robot1: tasks=4 final_battery=0.9691
+    robot2: tasks=4 final_battery=0.9691
+
+RESULT: PASS - identical scenario code ran under every backend via config only

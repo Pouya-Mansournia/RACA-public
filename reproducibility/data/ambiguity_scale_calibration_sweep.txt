@@ -1,0 +1,16 @@
+ambiguity-scale sweep: N=20 paired seeds, candidates=[0.001, 0.005, 0.01, 0.02, 0.03, 0.04, 0.05]
+
+baseline (pre-recalibration default 0.05) already measured in Phase 13: tasks=7.40 (±0.50), llm_rate=95.8% (±5.3%). Current default is 0.04.
+
+| Scale | Mean Tasks (±stdev) | Mean LLM Rate (±stdev) | Quality OK | Cost OK |
+|---:|---:|---:|---|---|
+| 0.001 | 7.95 (±0.22) | 0.0700 (±0.2364) | YES | YES |
+| 0.005 | 7.90 (±0.31) | 0.1422 (±0.2765) | YES | YES |
+| 0.010 | 7.70 (±0.47) | 0.3139 (±0.3678) | YES | YES |
+| 0.020 | 7.50 (±0.51) | 0.5361 (±0.3967) | YES | YES |
+| 0.030 | 7.45 (±0.51) | 0.9278 (±0.0744) | YES | YES |
+| 0.040 | 7.40 (±0.50) | 0.9478 (±0.0628) | YES | YES |
+| 0.050 | 7.40 (±0.50) | 0.9583 (±0.0525) | YES | no |
+
+SELECTED: 0.04 - largest (most conservative) scale where both criteria pass.
+  selected scale, N=20: tasks 95% bootstrap CI [7.200, 7.600], llm_rate 95% bootstrap CI [0.9211, 0.9739]

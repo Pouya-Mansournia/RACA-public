@@ -1,0 +1,71 @@
+=== Phase 4: backend cost report ===
+scenario: 2 robots, seed=6, duration=60.0s, no adaptive routing
+
+| Backend | Decisions | Mean Latency (ms) | P95 Latency (ms) | Validity Rate | Fallback Rate | Tasks Completed |
+|---|---:|---:|---:|---:|---:|---:|
+| deterministic | 10 | 0.0079 | 0.0172 | 1.0000 | 0.0000 | 8 |
+| mock | 10 | 0.0010 | 0.0032 | 1.0000 | 0.0000 | 8 |
+| local_llm | 13 | 4359.0445 | 4928.9278 | 1.0000 | 0.0000 | 8 |
+
+=== Phase 6: routing baselines ===
+scenario: 2 robots, duration=60.0s, paired seeds=[6, 7, 8]
+
+| Router | Seed | Decisions | Mean Latency (ms) | LLM Invocation Rate | Tasks Completed |
+|---|---:|---:|---:|---:|---:|
+| always_deterministic | 6 | 10 | 0.0146 | 0.0000 | 8 |
+| always_deterministic | 7 | 10 | 0.0111 | 0.0000 | 8 |
+| always_deterministic | 8 | 10 | 0.0112 | 0.0000 | 8 |
+| always_llm | 6 | 13 | 3953.1787 | 1.0000 | 8 |
+| always_llm | 7 | 10 | 4704.8841 | 1.0000 | 8 |
+| always_llm | 8 | 10 | 4525.9216 | 1.0000 | 8 |
+| fixed_ambiguity_threshold | 6 | 10 | 4546.4538 | 1.0000 | 8 |
+| fixed_ambiguity_threshold | 7 | 10 | 4846.4620 | 1.0000 | 8 |
+| fixed_ambiguity_threshold | 8 | 13 | 3735.8548 | 1.0000 | 8 |
+| random_router | 6 | 10 | 1988.9604 | 0.4000 | 8 |
+| random_router | 7 | 10 | 1812.7190 | 0.4000 | 8 |
+| random_router | 8 | 10 | 1795.8265 | 0.4000 | 8 |
+| simple_rule_router | 6 | 13 | 3546.6599 | 1.0000 | 8 |
+| simple_rule_router | 7 | 10 | 4500.0931 | 1.0000 | 8 |
+| simple_rule_router | 8 | 10 | 4611.1947 | 1.0000 | 8 |
+
+=== Phase 8: self-calibration demo ===
+scenario: 2 robots, seed=6, degradation onset at t=30.0s, total duration=90.0s
+
+| Robot | LLM rate before onset | LLM rate after onset | LLM failure_rate (final) |
+|---|---:|---:|---:|
+| robot1 | 0.667 | 0.000 | 0.333 |
+| robot2 | 0.667 | 0.000 | 0.333 |
+
+RESULT: PASS - LLM invocation rate dropped after injected degradation, without being told to
+
+=== Phase 9: multi-model robustness ===
+scenario: 2 robots, duration=60.0s, paired seeds=[6, 7, 8], adaptive_router
+
+| Model | Seed | Tasks Completed | LLM Invocation Rate | LLM Failures/Attempts |
+|---|---:|---:|---:|---:|
+| qwen2.5:7b | 6 | 8 | 0.2000 | 0/2 |
+| qwen2.5:7b | 7 | 8 | 0.2000 | 0/2 |
+| qwen2.5:7b | 8 | 8 | 0.2000 | 0/2 |
+| llama3.2:3b | 6 | 8 | 0.4545 | 0/5 |
+| llama3.2:3b | 7 | 6 | 1.0000 | 0/27 |
+| llama3.2:3b | 8 | 6 | 1.0000 | 0/38 |
+
+RESULT: identical raca_core code, identical scenario, ran successfully under both models via config only
+
+=== Phase 10: domain comparison ===
+scenario: 2 robots, duration=60.0s, paired seeds=[6, 7, 8], adaptive_router
+
+llm backend: real local Ollama model (raca_core default) - genuine
+measured latency drives the domain-dependent routing difference below.
+
+| Domain | Seed | Tasks Completed | LLM Invocation Rate |
+|---|---:|---:|---:|
+| warehouse_failover | 6 | 8 | 0.2000 |
+| warehouse_failover | 7 | 8 | 0.2000 |
+| warehouse_failover | 8 | 8 | 0.2000 |
+| service_robot | 6 | 8 | 1.0000 |
+| service_robot | 7 | 8 | 1.0000 |
+| service_robot | 8 | 8 | 1.0000 |
+
+mean LLM invocation rate, warehouse_failover: 0.2000
+mean LLM invocation rate, service_robot: 1.0000

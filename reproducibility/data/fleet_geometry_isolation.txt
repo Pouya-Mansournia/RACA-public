@@ -1,0 +1,22 @@
+fleet-size / geometry isolation: 3x3 factorial grid, N=20 paired seeds/cell, AMBIGUITY_MARGIN_SCALE fixed at 0.05, MockBackend
+
+### Mean adaptive_router LLM invocation rate (%)
+
+| Geometry scale \ Robots | 2 | 20 | 100 |
+|---|---:|---:|---:|
+| 1.0x | 97.7 | 48.1 | 5.5 |
+| 5.0x | 99.2 | 98.6 | 84.6 |
+| 20.0x | 100.0 | 100.0 | 100.0 |
+
+### Paired LLM-rate diff vs always_llm, 95% bootstrap CI (percentage points)
+
+| Geometry scale \ Robots | 2 | 20 | 100 |
+|---|---:|---:|---:|
+| 1.0x | -2.3 [-3.4,-1.1] | -51.9 [-56.0,-47.4] | -94.5 [-95.1,-93.8] |
+| 5.0x | -0.8 [-2.5,+0.0] | -1.4 [-2.1,-0.7] | -15.4 [-19.7,-11.6] |
+| 20.0x | +0.0 [+0.0,+0.0] | +0.0 [+0.0,+0.0] | +0.0 [+0.0,+0.0] |
+
+Interpretation: read ACROSS a row (fixed geometry, varying robot count) to isolate the
+fleet-size effect. Read DOWN a column (fixed robot count, varying geometry) to isolate
+the geometry effect. If a row is roughly flat while columns vary a lot, the effect is
+geometry-driven, not fleet-size-driven (or vice versa).

@@ -1,0 +1,30 @@
+held-out confirmatory re-evaluation: seeds 1001-1020 (disjoint from seeds 1-20 used to select every scale below)
+
+### 2_robots_original (selected scale=0.04, geometry scale=1.0x, 2 robots)
+
+  held-out N=20, task-count diff: mean +0.050, 95% CI [+0.000, +0.150]
+  held-out N=20, LLM-rate diff:   mean -0.0606, 95% CI [-0.0906, -0.0350] (-9.1pp to -3.5pp)
+  in-sample (tuning-seed) CI was: [-7.9pp, -2.6pp]
+  [CONFIRMED] held-out CI stays below zero (cost reduction generalizes beyond the tuning seeds)
+
+### 100_robots_5x (selected scale=0.05, geometry scale=5.0x, 100 robots)
+
+  held-out N=20, task-count diff: mean -0.150, 95% CI [-1.750, +1.400]
+  held-out N=20, LLM-rate diff:   mean -0.1288, 95% CI [-0.1719, -0.0894] (-17.2pp to -8.9pp)
+  in-sample (tuning-seed) CI was: [-11.6pp, -6.7pp]
+  [CONFIRMED] held-out CI stays below zero (cost reduction generalizes beyond the tuning seeds)
+
+### 200_robots_10x (selected scale=0.05, geometry scale=10.0x, 200 robots)
+
+  held-out N=20, task-count diff: mean +0.200, 95% CI [-0.250, +0.800]
+  held-out N=20, LLM-rate diff:   mean -0.1037, 95% CI [-0.1444, -0.0695] (-14.4pp to -7.0pp)
+  in-sample (tuning-seed) CI was: [-16.4pp, -9.4pp]
+  [CONFIRMED] held-out CI stays below zero (cost reduction generalizes beyond the tuning seeds)
+
+### 1000_robots_50x (selected scale=0.05, geometry scale=50.0x, 1000 robots)
+
+  held-out N=20, task-count diff: mean +0.000, 95% CI [+0.000, +0.000]
+  held-out N=20, LLM-rate diff:   mean -0.2725, 95% CI [-0.3417, -0.1981] (-34.2pp to -19.8pp)
+  in-sample (tuning-seed) CI was: [-30.0pp, -14.1pp]
+  [CONFIRMED] held-out CI stays below zero (cost reduction generalizes beyond the tuning seeds)
+

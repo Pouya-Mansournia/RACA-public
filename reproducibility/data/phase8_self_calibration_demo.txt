@@ -1,0 +1,8 @@
+scenario: 2 robots, seed=6, degradation onset at t=30.0s, total duration=90.0s
+
+| Robot | LLM rate before onset | LLM rate after onset | LLM failure_rate (final) |
+|---|---:|---:|---:|
+| robot1 | 0.667 | 0.000 | 0.333 |
+| robot2 | 0.667 | 0.000 | 0.333 |
+
+RESULT: PASS - LLM invocation rate dropped after injected degradation, without being told to

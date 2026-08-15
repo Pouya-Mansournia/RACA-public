@@ -1,0 +1,53 @@
+ambiguity-scale re-calibration at larger geometries: candidates=[0.001, 0.005, 0.01, 0.02, 0.03, 0.04, 0.05], N=20 paired seeds each
+
+### 5x_warehouse_100_robots (geometry scale=5.0x, 100 robots, N=20 paired seeds)
+
+| Scale | Mean Tasks (±stdev) | Mean LLM Rate (±stdev) | Quality OK | Cost OK |
+|---:|---:|---:|---|---|
+| 0.001 | 424.10 (±4.99) | 0.8484 (±0.0699) | YES | YES |
+| 0.005 | 422.90 (±6.62) | 0.8659 (±0.0688) | YES | YES |
+| 0.010 | 423.45 (±5.99) | 0.8789 (±0.0620) | YES | YES |
+| 0.020 | 420.00 (±5.33) | 0.8946 (±0.0679) | YES | YES |
+| 0.030 | 419.95 (±6.55) | 0.9058 (±0.0663) | YES | YES |
+| 0.040 | 420.90 (±6.77) | 0.9089 (±0.0587) | YES | YES |
+| 0.050 | 421.10 (±6.10) | 0.9101 (±0.0589) | YES | YES |
+
+SELECTED at this geometry: 0.05 (largest scale where both criteria pass)
+  paired diff vs always_llm, N=20: task-count 95% CI [-1.350, +3.000], LLM-rate 95% CI [-0.1164, -0.0668]
+  compare to the 2-robot, scale=1.0 default currently shipped: 0.04
+  MISMATCH: 0.04 does NOT transfer unchanged to this geometry - the criterion-passing value here is 0.05
+
+### 10x_city_200_robots (geometry scale=10.0x, 200 robots, N=20 paired seeds)
+
+| Scale | Mean Tasks (±stdev) | Mean LLM Rate (±stdev) | Quality OK | Cost OK |
+|---:|---:|---:|---|---|
+| 0.001 | 418.45 (±5.91) | 0.8290 (±0.0966) | YES | YES |
+| 0.005 | 417.50 (±5.84) | 0.8372 (±0.0994) | YES | YES |
+| 0.010 | 415.70 (±6.29) | 0.8547 (±0.1020) | YES | YES |
+| 0.020 | 414.55 (±7.03) | 0.8668 (±0.0937) | YES | YES |
+| 0.030 | 412.60 (±6.64) | 0.8689 (±0.0953) | YES | YES |
+| 0.040 | 412.65 (±6.53) | 0.8703 (±0.0939) | YES | YES |
+| 0.050 | 412.90 (±6.54) | 0.8743 (±0.0826) | YES | YES |
+
+SELECTED at this geometry: 0.05 (largest scale where both criteria pass)
+  paired diff vs always_llm, N=20: task-count 95% CI [+0.000, +0.000], LLM-rate 95% CI [-0.1638, -0.0936]
+  compare to the 2-robot, scale=1.0 default currently shipped: 0.04
+  MISMATCH: 0.04 does NOT transfer unchanged to this geometry - the criterion-passing value here is 0.05
+
+### 50x_city_1000_robots (geometry scale=50.0x, 1000 robots, N=20 paired seeds)
+
+| Scale | Mean Tasks (±stdev) | Mean LLM Rate (±stdev) | Quality OK | Cost OK |
+|---:|---:|---:|---|---|
+| 0.001 | 262.70 (±12.77) | 0.7792 (±0.1836) | YES | YES |
+| 0.005 | 262.70 (±12.77) | 0.7787 (±0.1833) | YES | YES |
+| 0.010 | 262.70 (±12.77) | 0.7791 (±0.1835) | YES | YES |
+| 0.020 | 262.70 (±12.77) | 0.7792 (±0.1836) | YES | YES |
+| 0.030 | 262.70 (±12.77) | 0.7792 (±0.1836) | YES | YES |
+| 0.040 | 262.70 (±12.77) | 0.7792 (±0.1836) | YES | YES |
+| 0.050 | 262.70 (±12.77) | 0.7792 (±0.1836) | YES | YES |
+
+SELECTED at this geometry: 0.05 (largest scale where both criteria pass)
+  paired diff vs always_llm, N=20: task-count 95% CI [+0.000, +0.000], LLM-rate 95% CI [-0.2999, -0.1411]
+  compare to the 2-robot, scale=1.0 default currently shipped: 0.04
+  MISMATCH: 0.04 does NOT transfer unchanged to this geometry - the criterion-passing value here is 0.05
+

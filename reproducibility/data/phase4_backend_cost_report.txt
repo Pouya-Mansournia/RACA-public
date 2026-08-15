@@ -1,0 +1,7 @@
+scenario: 2 robots, seed=6, duration=60.0s, no adaptive routing
+
+| Backend | Decisions | Mean Latency (ms) | P95 Latency (ms) | Validity Rate | Fallback Rate | Tasks Completed |
+|---|---:|---:|---:|---:|---:|---:|
+| deterministic | 10 | 0.0121 | 0.0287 | 1.0000 | 0.0000 | 8 |
+| mock | 10 | 0.0017 | 0.0048 | 1.0000 | 0.0000 | 8 |
+| local_llm | 10 | 4834.7074 | 5865.5321 | 1.0000 | 0.0000 | 8 |

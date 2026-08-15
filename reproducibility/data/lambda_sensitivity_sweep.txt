@@ -1,0 +1,25 @@
+lambda sensitivity sweep: N=20 paired seeds, 2 robots, AMBIGUITY_MARGIN_SCALE fixed at 0.04
+
+Goal: does the qualitative result (quality preserved AND cost meaningfully reduced) survive
+across this parameter region, not which single value looks best.
+
+### lambda_latency sweep (other lambda held at its shipped default)
+
+| Value | Mean Tasks | Mean LLM Rate | Quality OK | Cost OK |
+|---:|---:|---:|---|---|
+| 0.01 | 7.35 | 1.0000 | YES | no |
+| 0.05 | 7.35 | 0.9844 | YES | no |
+| 0.1 (shipped default) | 7.40 | 0.9478 | YES | YES |
+| 0.5 | 8.00 | 0.0000 | YES | YES |
+| 1.0 | 8.00 | 0.0000 | YES | YES |
+
+### lambda_reliability sweep (other lambda held at its shipped default)
+
+| Value | Mean Tasks | Mean LLM Rate | Quality OK | Cost OK |
+|---:|---:|---:|---|---|
+| 0.5 | 7.40 | 0.9478 | YES | YES |
+| 1.0 | 7.40 | 0.9478 | YES | YES |
+| 2.0 (shipped default) | 7.40 | 0.9478 | YES | YES |
+| 5.0 | 7.40 | 0.9478 | YES | YES |
+| 10.0 | 7.40 | 0.9478 | YES | YES |
+

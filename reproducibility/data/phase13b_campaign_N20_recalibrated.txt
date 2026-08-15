@@ -1,0 +1,16 @@
+campaign: 3 routers x 20 paired seeds, 2 robots, duration=60.0s, varied non-symmetric start positions
+
+| Router | N | Mean Tasks (± stdev) | Mean LLM Rate (± stdev) |
+|---|---:|---:|---:|
+| always_deterministic | 20 | 8.00 (±0.00) | 0.0000 (±0.0000) |
+| always_llm | 20 | 7.35 (±0.49) | 1.0000 (±0.0000) |
+| adaptive_router | 20 | 7.40 (±0.50) | 0.9478 (±0.0628) |
+
+paired diff (adaptive_router - always_llm), N=20:
+  mean task-count diff: +0.050 (stdev 0.224)
+  mean LLM-rate diff:   -0.0522
+  task-count diff 95% bootstrap CI: [+0.000, +0.150]
+  LLM-rate diff 95% bootstrap CI:   [-0.0789, -0.0261]
+
+  [PASS] quality preserved: adaptive_router task count within 0.5 of always_llm's, on average across 20 seeds
+  [PASS] cost reduced: adaptive_router's LLM rate is meaningfully lower than always_llm's

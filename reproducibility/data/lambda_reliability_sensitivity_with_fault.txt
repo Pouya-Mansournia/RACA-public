@@ -1,0 +1,16 @@
+lambda_reliability sensitivity UNDER INJECTED FAULT: N=20 paired seeds, 2 robots, MockBackend, LLM degrades to unavailable at t=20.0s (permanent for the rest of the run)
+
+| lambda_reliability | Mean Tasks | Mean LLM Rate (post-fault effect visible) |
+|---:|---:|---:|
+| 0.0 (penalty disabled) | 7.40 | 0.3689 |
+| 0.5 | 7.40 | 0.3689 |
+| 1.0 | 7.40 | 0.3689 |
+| 2.0 (shipped default) | 7.40 | 0.3689 |
+| 5.0 | 7.40 | 0.3689 |
+| 10.0 | 7.40 | 0.3689 |
+
+Interpretation: with a real injected failure, failure_rate('llm') becomes nonzero after
+t=20s, so lambda_reliability now has something to act on (unlike the fault-free sweep).
+If mean LLM rate drops as lambda_reliability increases, the penalty term is doing real
+work; if it's flat, the fallback's own try/except (which fires regardless of the utility
+penalty) is already doing all of the practical work and the penalty term is redundant.

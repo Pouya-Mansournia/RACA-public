@@ -1,0 +1,18 @@
+scenario: 2 robots, duration=60.0s, paired seeds=[6, 7, 8], llm degrades to unavailable at t=20.0s
+
+NOTE on static_fixed_threshold_with_fallback (Critical Audit 5 deconfounding variant):
+its LLM Invocation Rate counts attempts routed to the LLM slot, not confirmed LLM
+responses - FallbackBackend can silently substitute the deterministic backend's answer
+after a caught exception, so this row's rate is an upper bound on true LLM usage, not
+an exact figure. Mean Tasks Completed is unaffected by this and is the metric that
+actually answers the crash/survive question.
+
+| Ablation | Mean Tasks Completed | Mean LLM Invocation Rate |
+|---|---:|---:|
+| full_raca | 8.00 | 0.3333 |
+| no_latency_awareness | 8.00 | 0.4000 |
+| no_urgency_awareness | 8.00 | 0.3333 |
+| no_ambiguity_awareness | 8.00 | 0.0000 |
+| no_reliability_history | 8.00 | 0.3333 |
+| static_fixed_threshold | 4.00 | 1.0000 |
+| static_fixed_threshold_with_fallback | 8.00 | 1.0000 |

@@ -1,0 +1,44 @@
+=== RUN 1 ===
+scenario: 2 robots, duration=60.0s, paired seeds=[6, 7, 8], non-symmetric start positions
+
+| Router | Seed | Tasks Completed | LLM Invocation Rate | LLM Calls |
+|---|---:|---:|---:|---:|
+| always_deterministic | 6 | 8 | 0.0000 | 0 |
+| always_deterministic | 7 | 8 | 0.0000 | 0 |
+| always_deterministic | 8 | 8 | 0.0000 | 0 |
+| always_llm | 6 | 8 | 1.0000 | 10 |
+| always_llm | 7 | 8 | 1.0000 | 10 |
+| always_llm | 8 | 8 | 1.0000 | 10 |
+| adaptive_router | 6 | 8 | 0.2000 | 2 |
+| adaptive_router | 7 | 8 | 0.3000 | 3 |
+| adaptive_router | 8 | 8 | 0.2000 | 2 |
+
+mean tasks_completed: always_deterministic=8.00, always_llm=8.00, adaptive_router=8.00
+mean llm_invocation_rate: always_llm=1.0000, adaptive_router=0.2333
+
+  [PASS] quality: adaptive_router tasks >= always_deterministic tasks
+  [PASS] cost: adaptive_router LLM rate < always_llm LLM rate
+
+RESULT: PASS - RACA V1 beats Always-LLM on the defined multi-objective criterion
+=== RUN 2 ===
+scenario: 2 robots, duration=60.0s, paired seeds=[6, 7, 8], non-symmetric start positions
+
+| Router | Seed | Tasks Completed | LLM Invocation Rate | LLM Calls |
+|---|---:|---:|---:|---:|
+| always_deterministic | 6 | 8 | 0.0000 | 0 |
+| always_deterministic | 7 | 8 | 0.0000 | 0 |
+| always_deterministic | 8 | 8 | 0.0000 | 0 |
+| always_llm | 6 | 8 | 1.0000 | 10 |
+| always_llm | 7 | 8 | 1.0000 | 10 |
+| always_llm | 8 | 8 | 1.0000 | 10 |
+| adaptive_router | 6 | 8 | 0.2000 | 2 |
+| adaptive_router | 7 | 8 | 0.2000 | 2 |
+| adaptive_router | 8 | 8 | 0.2000 | 2 |
+
+mean tasks_completed: always_deterministic=8.00, always_llm=8.00, adaptive_router=8.00
+mean llm_invocation_rate: always_llm=1.0000, adaptive_router=0.2000
+
+  [PASS] quality: adaptive_router tasks >= always_deterministic tasks
+  [PASS] cost: adaptive_router LLM rate < always_llm LLM rate
+
+RESULT: PASS - RACA V1 beats Always-LLM on the defined multi-objective criterion

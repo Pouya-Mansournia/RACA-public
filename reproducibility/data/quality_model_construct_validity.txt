@@ -1,0 +1,17 @@
+Construct-validity check: does ambiguity predict backend disagreement? N=3000 sampled decisions
+
+Backend disagreement = DeterministicBackend's cost-ranked choice differs from
+MockBackend's naive 'always pick the first candidate' choice.
+
+| Ambiguity bucket | N | Disagreement rate |
+|---|---:|---:|
+| [0.0, 0.2) | 68 | 1.000 |
+| [0.2, 0.4) | 109 | 0.982 |
+| [0.4, 0.6) | 179 | 0.994 |
+| [0.6, 0.8) | 506 | 0.990 |
+| [0.8, 1.0] | 2138 | 0.957 |
+
+Interpretation: this tests whether ambiguity correlates with a MEASURABLE structural
+property (would a naive alternative policy choose differently), not whether an LLM would
+give a BETTER answer at high ambiguity - no per-decision quality ground truth exists in
+this codebase to test that stronger claim, and this script does not claim otherwise.

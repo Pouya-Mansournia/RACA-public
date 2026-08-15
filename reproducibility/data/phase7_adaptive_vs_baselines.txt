@@ -1,0 +1,21 @@
+scenario: 2 robots, duration=60.0s, paired seeds=[6, 7, 8], non-symmetric start positions
+
+| Router | Seed | Tasks Completed | LLM Invocation Rate | LLM Calls |
+|---|---:|---:|---:|---:|
+| always_deterministic | 6 | 8 | 0.0000 | 0 |
+| always_deterministic | 7 | 8 | 0.0000 | 0 |
+| always_deterministic | 8 | 8 | 0.0000 | 0 |
+| always_llm | 6 | 7 | 1.0000 | 9 |
+| always_llm | 7 | 7 | 1.0000 | 10 |
+| always_llm | 8 | 7 | 1.0000 | 10 |
+| adaptive_router | 6 | 8 | 0.5000 | 5 |
+| adaptive_router | 7 | 8 | 0.6000 | 6 |
+| adaptive_router | 8 | 7 | 1.0000 | 11 |
+
+mean tasks_completed: always_deterministic=8.00, always_llm=7.00, adaptive_router=7.67
+mean llm_invocation_rate: always_llm=1.0000, adaptive_router=0.7000
+
+  [FAIL] quality: adaptive_router tasks >= always_deterministic tasks
+  [PASS] cost: adaptive_router LLM rate < always_llm LLM rate
+
+RESULT: FAIL - see above

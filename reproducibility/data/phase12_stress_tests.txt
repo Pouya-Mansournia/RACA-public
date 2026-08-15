@@ -1,0 +1,12 @@
+Phase 12 stress tests - acceptance: no unhandled exception escapes run_until(),
+a safe fallback action remains available in every scenario.
+
+| Fault | Result | Detail |
+|---|---|---|
+| hard_outage (llm unavailable, whole run) | PASS | no unhandled failures reached the world (AdaptiveRouter's own safety net absorbed every outage) |
+| high_inference_latency (+20ms/call) | PASS | tasks still completed under added latency: 8 |
+| invalid_llm_responses (malformed JSON/schema) | PASS | every malformed response correctly triggered fallback; tasks_completed=8 |
+| dual_backend_failure (both backends down) | PASS | world logged 120 ROBOT_DECISION_FAILED events and kept running instead of crashing |
+| task_surge (6 robots, fixed station pool) | PASS | 6 robots, same station pool: tasks_completed=24 |
+
+RESULT: PASS - RACA degrades gracefully under every injected fault

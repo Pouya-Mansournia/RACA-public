@@ -1,0 +1,8 @@
+reference run: experiments/2026-08-12_milestone6_battery_degradation_001/
+lightweight world: 2 robots, seed=6, duration=60.027s
+
+  [PASS] tasks_completed (robot2): 4  (tolerance: [2, 5])
+  [PASS] mean_task_duration_sec (robot2): 12.08  (tolerance: [7.20, 21.60] (real=14.4))
+  [PASS] battery_drop_over_60s (robot2): 0.03089  (tolerance: [0.02163, 0.04017] (real=0.03090))
+
+RESULT: PASS - within all defined tolerances

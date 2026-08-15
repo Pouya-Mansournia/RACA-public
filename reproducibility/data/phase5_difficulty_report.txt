@@ -1,0 +1,9 @@
+decisions probed: 15
+  clear (ambiguity=0.0): 5
+  mid ambiguity (0,0.9]: 0
+  near-ambiguous (>0.9): 10
+
+distinct urgency levels observed (battery-derived): [0.0, 0.25, 0.5, 0.75, 0.9]
+difficulty_score range: [0.000, 0.870]
+
+RESULT: decisions group along interpretable, outcome-independent dimensions

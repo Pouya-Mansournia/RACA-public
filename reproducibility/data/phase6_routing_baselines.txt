@@ -1,0 +1,19 @@
+scenario: 2 robots, duration=60.0s, paired seeds=[6, 7, 8]
+
+| Router | Seed | Decisions | Mean Latency (ms) | LLM Invocation Rate | Tasks Completed |
+|---|---:|---:|---:|---:|---:|
+| always_deterministic | 6 | 10 | 0.0417 | 0.0000 | 8 |
+| always_deterministic | 7 | 10 | 0.0427 | 0.0000 | 8 |
+| always_deterministic | 8 | 10 | 0.0407 | 0.0000 | 8 |
+| always_llm | 6 | 10 | 9700.4873 | 1.0000 | 8 |
+| always_llm | 7 | 10 | 11725.2040 | 1.0000 | 8 |
+| always_llm | 8 | 11 | 11930.2733 | 1.0000 | 8 |
+| fixed_ambiguity_threshold | 6 | 10 | 9945.5711 | 1.0000 | 7 |
+| fixed_ambiguity_threshold | 7 | 10 | 7363.2441 | 1.0000 | 8 |
+| fixed_ambiguity_threshold | 8 | 12 | 7475.7966 | 1.0000 | 8 |
+| random_router | 6 | 10 | 3177.7536 | 0.4000 | 8 |
+| random_router | 7 | 10 | 1725.5572 | 0.4000 | 8 |
+| random_router | 8 | 10 | 1654.3444 | 0.4000 | 8 |
+| simple_rule_router | 6 | 13 | 6457.7563 | 1.0000 | 8 |
+| simple_rule_router | 7 | 10 | 7524.6229 | 1.0000 | 8 |
+| simple_rule_router | 8 | 11 | 7221.6238 | 1.0000 | 8 |
