@@ -1,5 +1,9 @@
 # RACA: Robotic Adaptive Cognitive Architecture
 
+[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD--3--Clause-blue.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21961820.svg)](https://doi.org/10.5281/zenodo.21961820)
+[![Python 3](https://img.shields.io/badge/python-3-blue.svg)](raca/tests)
+
 RACA studies a boundary-condition question: **under what circumstances
 does spending an LLM call on a robot coordination decision pay for its
 cost, and when does that benefit collapse to noise?** This repository is
@@ -23,6 +27,32 @@ The manuscript itself, the internal pre-submission audit trail, the
 literature review working notes, and the full chronological research
 journal are kept private and are not part of this public release; they
 are not required to reproduce the reported results.
+
+## Architecture
+
+```mermaid
+flowchart TD
+    subgraph raca["raca/"]
+        core["raca_core\n(router, backends, difficulty/ambiguity modeling, contracts, statistics)"]
+        worlds["raca_worlds\n(lightweight multi-robot simulator, no ROS/Gazebo)"]
+        tools["tools\n(experiment + analysis scripts)"]
+        tests["tests\n(unit tests)"]
+    end
+    repro["reproducibility/\n(raw data captures + reference figures)"]
+
+    worlds --> core
+    core --> tools
+    tools --> repro
+    tests -.covers.-> core
+    tests -.covers.-> worlds
+```
+
+`raca_worlds` drives simulated multi-robot scenarios; `raca_core` decides,
+per coordination event, whether to route to a deterministic backend or an
+LLM backend (local Ollama by default, or a cloud provider via `.env`).
+`tools` runs the experiments and analysis behind the manuscript's results,
+and the captured output is archived in `reproducibility/` for independent
+reproduction.
 
 ## Quick start
 
