@@ -14,9 +14,10 @@ This repository contains:
   `raca_worlds` (a lightweight simulator with no ROS/Gazebo dependency),
   `raca/tools` (the experiment and analysis scripts behind the paper's
   results), and `raca/tests` (unit tests covering the above).
-- **`reproducibility/`** — the raw data captures and reference figures
-  needed to reproduce the manuscript's quantitative results; see
-  `reproducibility/README.md`.
+- **`reproducibility/`** — the raw data captures (`data/*.txt`, real
+  captured stdout from the `raca/tools/*.py` scripts) and reference
+  figures (`figures/*.png`) needed to reproduce the manuscript's
+  quantitative results; see `reproducibility/README.md`.
 
 The manuscript itself, the internal pre-submission audit trail, the
 literature review working notes, and the full chronological research
@@ -57,6 +58,7 @@ BSD 3-Clause, see `LICENSE`.
 ## Citation
 
 If you use this work, please cite it — see `CITATION.cff`.
+Archived release DOI: [10.5281/zenodo.21961820](https://doi.org/10.5281/zenodo.21961820).
 
 ## Contact
 

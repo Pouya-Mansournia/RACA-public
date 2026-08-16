@@ -8,6 +8,11 @@ authors:
 repository-code: "https://github.com/Pouya-Mansournia/RACA"
 license: BSD-3-Clause
 date-released: "2026-08-14"
+doi: 10.5281/zenodo.21961820
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21961820
+    description: "Archived snapshot of this software release"
 preferred-citation:
   type: article
   title: "The Cost and Limits of Proactive Reasoning Allocation in Multi-Robot Coordination"
